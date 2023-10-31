@@ -22,10 +22,32 @@ def test_bubble_sort_descending():
 
     assert (result == test_arr)
 
-def test_bubble_sort_invalid():
-    result = []
-    input_arr = [64, 34, 25, 12, 22, 11, 90]
+
+def test_bubble_sort_invalid_more_than_10():
+    test = 1
+    input_arr = [64, 34, 25, 12, 22, 11, 90, 20, 60, 70, 20]
 
     result = Lab3.bubble_sort(input_arr, 3)
 
-    assert (result == [])
+    assert (result == test)
+
+
+def test_bubble_sort_invalid_0():
+    test = 0
+    input_arr = []
+
+    result = Lab3.bubble_sort(input_arr, 3)
+
+    assert (result == test)
+
+
+def test_bubble_sort_invalid_not_integers():
+    test = 2
+    input_arr = ["phone",4.5656]
+
+    result = Lab3.bubble_sort(input_arr, 3)
+
+    assert (result == test)
+
+
+
