@@ -12,6 +12,7 @@ def test_bubble_sort_ascending():
 
     assert (result == test_arr)
 
+
 def test_bubble_sort_descending():
     result = []
     input_arr = [64, 34, 25, 12, 22, 11, 90]
