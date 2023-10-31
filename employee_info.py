@@ -14,7 +14,7 @@ def get_employees_by_age_range(age_lower_limit, age_upper_limit):
 
     # check for age limits and append the item to result
     for item in employee_data:
-        if int(item["age"]) > int(age_lower_limit) and int(item["age"]) < int(age_upper_limit):
+        if int(age_lower_limit) < int(item["age"]) < int(age_upper_limit):
             result.append(item)
 
     return result
@@ -31,11 +31,13 @@ def calculate_average_salary():
     average = total/len(employee_data)
     return average
 
+
 def get_employees_by_dept(department):
     result = []
-
-    # Add your implementation from here
-
+    for item in employee_data:
+        if item.get("department") == department:
+            info = item
+            result.append(info)
 
     return result
 
@@ -66,7 +68,7 @@ def display_main_menu():
 
     print("Q - Quit")
 
-    option = input("Enter selection =>")
+    option = input("Enter selection => ")
 
     if option == '1':
         display_all_records()
@@ -77,7 +79,7 @@ def display_main_menu():
 
     elif option == '3':
         age_lower_limit = input("age (Lower Limit) = ")
-        age_upper_limit = input("age (Uper Limit) = ")
+        age_upper_limit = input("age (Upper Limit) = ")
         employee_info = get_employees_by_age_range(age_lower_limit, age_upper_limit)
         display_records(employee_info)
 
@@ -90,7 +92,7 @@ def display_main_menu():
     elif option == 'Q':
         quit()
 
-"""
+
 def main():
 
     while (True):
@@ -99,4 +101,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-"""
